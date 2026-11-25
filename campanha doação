@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-mail Imposto de Renda - Wikimedia Brasil</title>
+<style>
+  body { font-family: Arial, sans-serif; background:#f2f2f2; margin:0; padding:20px; }
+  .barra { max-width:600px; margin:0 auto 16px; background:#fff; padding:14px 16px; border-radius:8px; font-size:14px; color:#333; }
+  .barra button { background:#0060b9; color:#fff; border:0; padding:10px 18px; border-radius:6px; font-size:14px; cursor:pointer; margin-top:8px; }
+  .barra button:hover { background:#004a8f; }
+  #msg { margin-left:10px; color:#188038; font-size:13px; }
+</style>
+</head>
+<body>
+
+<!-- Instruções (NÃO são copiadas) -->
+<div class="barra">
+  <strong>Como usar:</strong> clique em "Copiar e-mail", abra o Gmail e cole (Ctrl+V) no corpo da mensagem.
+  <br>
+  <button onclick="copiar()">Copiar e-mail</button><span id="msg"></span>
+</div>
+
+<!-- ===== INÍCIO DO E-MAIL ===== -->
+<div id="email">
+<table width="600" align="center" cellpadding="0" cellspacing="0" border="0"
+       style="max-width:600px; width:100%; background:#ffffff; font-family:Arial, Helvetica, sans-serif;">
+  <tr>
+    <td>
+      <!-- TROCAR pelo link público da imagem, se mudar o endereço -->
+      <img src="https://garbezeando.github.io/email-wbm/cabecalho.png"
+           width="600" alt="Seu Imposto de Renda contribui com a cultura do nosso país. Wikimedia Brasil: preservar o conhecimento livre é proteger a nossa história."
+           style="display:block; width:100%; max-width:600px; height:auto; border:0;">
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:24px 20px; font-size:25px; line-height:1.6; color:#222222;">
+      <p style="margin:0 0 16px;">Como organização sem fins lucrativos fundada em 2013, atuamos na linha de frente do acesso livre ao conhecimento por meio da digitalização de acervos de museus, bibliotecas e arquivos, de programas de wiki-educação em universidades e centros de pesquisa, da inclusão de vozes sub-representadas e do combate à desinformação.</p>
+      <p style="margin:0 0 16px;">Por meio de projetos aprovados pela Lei Federal de Incentivo à Cultura, você pode deduzir parte do seu Imposto de Renda ao apoiar diretamente as ações da Wikimedia Brasil.</p>
+      <p style="margin:0 0 16px;"><strong>Como fazer?</strong> Confira o passo a passo no nosso material: <a href="https://w.wiki/kFB5" style="color:#0060b9;">https://w.wiki/kFB5</a> para realizar a destinação de forma rápida, simples e segura.</p>
+      <p style="margin:0;">Se preferir apoiar de forma direta e desvinculada, você também pode fazer uma contribuição via Pix pelo nosso site: <a href="https://wmnobrasil.org/apoie/" style="color:#0060b9;">wmnobrasil.org/apoie</a></p>
+    </td>
+  </tr>
+</table>
+</div>
+<!-- ===== FIM DO E-MAIL ===== -->
+
+<script>
+function copiar() {
+  var el = document.getElementById('email');
+  var sel = window.getSelection();
+  var range = document.createRange();
+  range.selectNodeContents(el);
+  sel.removeAllRanges();
+  sel.addRange(range);
+  var ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) {}
+  sel.removeAllRanges();
+  document.getElementById('msg').textContent = ok ? 'Copiado! Cole no Gmail.' : 'Não copiou: selecione o e-mail manualmente e use Ctrl+C.';
+}
+</script>
+</body>
+</html>
